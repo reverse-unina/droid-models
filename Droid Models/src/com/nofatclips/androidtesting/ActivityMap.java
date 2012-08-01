@@ -12,7 +12,7 @@ import org.w3c.dom.Element;
 import com.nofatclips.androidtesting.guitree.*;
 import com.nofatclips.androidtesting.model.ActivityState;
 
-public class ActivityMap {
+public class ActivityMap implements Iterable<ActivityState> {
 
 	public Map<String,ActivityState> activities;
 	public GuiTree doc;
@@ -94,6 +94,10 @@ public class ActivityMap {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public Iterator<ActivityState> iterator() {
+		return activities.values().iterator();
 	}
 
 }
