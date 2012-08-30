@@ -201,4 +201,12 @@ public class TestCaseWidget extends ElementWrapper implements WidgetState {
 
 	public final static String TAG = "WIDGET";
 
+	/** @author nicola */
+	public String getContentType() {
+		return getAttribute("content_type");
+	}
+	public void setContentType(String contentType) {
+		setAttribute("content_type", contentType);
+	}
+	/** @author nicola */
 }
