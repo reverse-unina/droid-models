@@ -18,8 +18,4 @@ public interface InteractionType {
 	public final static String WRITE_TEXT = "writeText";
 	public final static String PRESS_KEY = "pressKey";
 	public final static String RADIO_SELECT = "selectRadioItem";
-	
-	/** @author nicola */
-	public final static String WRITE_DICTIONARY_VALUE = "writeDictionaryValue";
-	/** @author nicola */
 }
