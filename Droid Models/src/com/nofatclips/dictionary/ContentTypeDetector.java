@@ -87,42 +87,52 @@ public class ContentTypeDetector {
         return true;
     }
     
-    public static String detect(WidgetState widget)
+    public static String detect(WidgetState widget, String txtId)
     {
     	int type = Integer.valueOf(widget.getTextType());
         String nameLowerCase = widget.getName().toLowerCase();
+        String txtIdLowerCase = (txtId != null)?txtId.toLowerCase():null;
         String valueLowerCase = widget.getValue().toLowerCase();
         
-        if (isText(type))
+        if (isText(type) || isTextURI(type) || isTextEmailAddress(type) || isTextPostalAddress(type))
         {
 	        if (	isTextURI(type)
-	        	||	valueLowerCase.contains("http")
-	        	||	valueLowerCase.contains("www")
-	        	||	(nameLowerCase.contains("site") && nameLowerCase.contains("address"))
+	        	||	stringContains(valueLowerCase, "http", "www")
+	        	||	stringContains(nameLowerCase, "site", "url", "web", "sito")
+	        	||	stringContains(txtIdLowerCase, "site", "url", "web", "sito")
 	        )
 	        {
 	        	return ContentType.URL;
 	        }
 	    	
 	        else if (	isTextEmailAddress(type)
-		    		||	nameLowerCase.contains("e-mail")
-		            ||	nameLowerCase.contains("mail")
-		            ||	valueLowerCase.contains("@")
+		        	||	stringContains(valueLowerCase, "@")
+		        	||	stringContains(nameLowerCase, "e-mail", "email")
+		        	||	stringContains(txtIdLowerCase, "e-mail", "email")
 	    	)
 	    	{
 	    		return ContentType.EMAIL;
 	    	}
 	
-	        else if (nameLowerCase.contains("isbn"))
+	        else if (	stringContains(nameLowerCase, "isbn")
+	        		||	stringContains(txtIdLowerCase, "isbn")
+	        )
 	    	{
 	    		return ContentType.ISBN;
 	    	}
 	        
-	        else if (	nameLowerCase.contains("credit")
-	                &&	nameLowerCase.contains("card")
+	        else if (	stringContains(nameLowerCase, "credit", "card")
+	        		||	stringContains(txtIdLowerCase, "credit", "card")
 	        )
 	    	{
 	    		return ContentType.CREDIT_CARD;
+	    	}	        
+	        else if (	isTextPostalAddress(type)
+	        		||	stringContains(nameLowerCase, "postcode", "postal", "zip")
+	        		||	stringContains(txtIdLowerCase, "postcode", "postal", "zip")
+	        )
+	    	{
+	    		return ContentType.ZIP;
 	    	}
         }
         else if (isNumber(type))
@@ -154,5 +164,17 @@ public class ContentTypeDetector {
     public static boolean isTextMultiline(WidgetState widget)
     {
     	return isTextMultiline(Integer.valueOf(widget.getTextType()));
+    }
+    
+    public static boolean stringContains(String string, String ... strings)
+    {
+    	if (string != null)
+    	{
+	    	for (String s : strings)
+	    		if (string.contains(s))
+	    			return true;
+    	}
+    	
+    	return false;
     }
 }
