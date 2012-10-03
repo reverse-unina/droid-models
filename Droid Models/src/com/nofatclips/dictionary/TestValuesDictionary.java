@@ -9,6 +9,8 @@ import com.nofatclips.androidtesting.model.WidgetState;
 
 public class TestValuesDictionary
 {
+	public static Random random = new Random();
+	
 	public static String[] getRandomValue(WidgetState widget)
 	{
 		String contentType = widget.getContentType();
@@ -140,10 +142,9 @@ public class TestValuesDictionary
 			ret[1] = valid[0];
 		}
 		else
-		{				
-			Random randomGenerator = new Random();
-			int valid_idx = randomGenerator.nextInt(valid.length - 1);
-			int invalid_idx = randomGenerator.nextInt(invalid.length - 1);
+		{
+			int valid_idx = TestValuesDictionary.random.nextInt(valid.length - 1);
+			int invalid_idx = TestValuesDictionary.random.nextInt(invalid.length - 1);
 			
 			ret[0] = invalid[invalid_idx];
 			ret[1] = valid[valid_idx];
