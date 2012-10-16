@@ -234,7 +234,10 @@ public class TestValuesDictionary
 		"email@111.222.333.44444", // Invalid IP format
 		"email@domain..com", // Multiple dot in the domain portion is invalid
 		"\nemail@domain.com",
-		"\temail@domain.com"
+		"\temail@domain.com",
+		" ",
+		"/",
+		"^"
 	};
 	
 	//RFC3986 normal example
@@ -273,7 +276,14 @@ public class TestValuesDictionary
 		"http://foo:-80/",
 		"http://www.google.it\n",
 		"\thttp://www.google.it",
-		"htto;//pippo,com"
+		"htto;//pippo,com",
+		" ",
+		"/",
+		"^",
+		"http://www.pippo .com",
+		"http://www..pippo.com",
+		"http:://www.pippo.com",
+		"http://www.pippo.com\\"
 	};
 	
 	public final static String[] ISBN_valid = {
@@ -294,7 +304,7 @@ public class TestValuesDictionary
 		"8163358726",
 		"8331130871",
 		"833113088X",
-		"8498903033"		
+		"8498903033"
 	};
 	
 	public final static String[] ISBN_invalid = {
@@ -304,7 +314,11 @@ public class TestValuesDictionary
 		"8163358721",
 		"ASDBS!!DFF",
 		"\n1452472319",
-		"\t1452472319"
+		"\t1452472319",
+		"0",
+		" ",
+		"/",
+		"^"
 	};
 	
 	public final static String[] CREDIT_CARD_valid = {
@@ -347,7 +361,11 @@ public class TestValuesDictionary
 		"\n4116480559370132",
 		"\t4116480559370132",
 		"123456",
-		"12"
+		"12",
+		"0",
+		" ",
+		"/",
+		"^"
 	};
 
 	public final static String[] ZIP_valid = {
@@ -357,13 +375,17 @@ public class TestValuesDictionary
 	};
 	
 	public final static String[] ZIP_invalid = {
+		"0",
 		"3a5801a",
 		"4a4101",
 		"\n82941",
 		"\t82941",
 		"829411234",
 		"abcdef",
-		"!!!!!!"
+		"!!!!!!",
+		" ",
+		"/",
+		"^"
 	};
 	
 	public final static String[] NUMBER_valid = {
@@ -384,6 +406,7 @@ public class TestValuesDictionary
 	};
 	
 	public final static String[] NUMBER_invalid = {
+		"0",
 		"AAA",
 		"99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
 		"-12",
@@ -392,7 +415,10 @@ public class TestValuesDictionary
 		"!!-",
 		"12.01",
 		"12%",
-		"z<q"
+		"z<q",
+		" ",
+		"/",
+		"^"
 	};
 	
 	public final static String[] NUMBER_SIGNED_valid = {
@@ -413,6 +439,7 @@ public class TestValuesDictionary
 	};
 	
 	public final static String[] NUMBER_SIGNED_invalid = {
+		"0",
 		"12,3",
 		"ab00",
 		"99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
@@ -428,7 +455,10 @@ public class TestValuesDictionary
 		"!!-",
 		"12.01",
 		"12%",
-		"z<q"
+		"z<q",
+		" ",
+		"/",
+		"^"
 	};
 	
 	public final static String[] NUMBER_DECIMAL_valid = {
@@ -445,6 +475,7 @@ public class TestValuesDictionary
 	};
 	
 	public final static String[] NUMBER_DECIMAL_invalid = {
+		"0",
 		"12,3",
 		"ab00",
 		"233176401123040024477515224301703382452989758054156037914702679301887293196935329184208300820842156635598983942674598.921047033915219852965519484067098016447",
@@ -459,7 +490,10 @@ public class TestValuesDictionary
 		"*12.01",
 		"12.01",
 		"12%",
-		"z<q"
+		"z<q",
+		" ",
+		"/",
+		"^"
 	};
 
 	public final static String[] NUMBER_SIGNED_DECIMAL_valid = {
@@ -476,6 +510,7 @@ public class TestValuesDictionary
 	};
 	
 	public final static String[] NUMBER_SIGNED_DECIMAL_invalid = {
+		"0",
 		"12,3",
 		"12\n78",
 		"ab00",
@@ -491,7 +526,10 @@ public class TestValuesDictionary
 		"!!-",
 		"12.01",
 		"12%",
-		"z<q"
+		"z<q",
+		" ",
+		"/",
+		"^"
 	};
 
 	public final static String[] STRING_valid = {
@@ -538,6 +576,9 @@ public class TestValuesDictionary
 		"ndkgskgjskjsdkfjdflkdsjfdskfjsdkfjsdkfljsdlkfsfkdfhdfjgksgjskgjskgsklsdjkfjsdkfjsdkghsesggjskljlkdljkh",
 		"\n\n\n\t\t\n",
 		"hthw\tfafadf",
-		"peworiw\nfldflsdk"
+		"peworiw\nfldflsdk",
+		" ",
+		"\n",
+		"\t"
 	};
 }
