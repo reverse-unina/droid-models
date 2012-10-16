@@ -1,5 +1,6 @@
 package com.nofatclips.dictionary;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -53,7 +54,53 @@ public class TestValuesDictionary
 		}
 		else	
 		{
-			return getRandomValue(DEFAULT_STRINGS, DEFAULT_STRINGS);
+			return getRandomValue(STRING_valid, STRING_invalid);
+		}
+	}
+	
+	//da ottimizzare
+	public static ArrayList<String> MIX_valid;
+	public static ArrayList<String> MIX_invalid;
+	public static String[] getRandomMixedValues(WidgetState widget)
+	{
+		if (MIX_valid == null)
+		{
+			MIX_valid = new ArrayList<String>();
+			MIX_invalid = new ArrayList<String>();
+			
+			MIX_valid.addAll(Arrays.asList(EMAIL_valid));
+			MIX_invalid.addAll(Arrays.asList(EMAIL_invalid));
+			MIX_valid.addAll(Arrays.asList(URL_valid));
+			MIX_invalid.addAll(Arrays.asList(URL_invalid));
+			MIX_valid.addAll(Arrays.asList(ISBN_valid));
+			MIX_invalid.addAll(Arrays.asList(ISBN_invalid));
+			MIX_valid.addAll(Arrays.asList(CREDIT_CARD_valid));
+			MIX_invalid.addAll(Arrays.asList(CREDIT_CARD_invalid));
+			MIX_valid.addAll(Arrays.asList(ZIP_valid));
+			MIX_invalid.addAll(Arrays.asList(ZIP_invalid));
+			MIX_valid.addAll(Arrays.asList(NUMBER_valid));
+			MIX_invalid.addAll(Arrays.asList(NUMBER_invalid));
+			MIX_valid.addAll(Arrays.asList(NUMBER_SIGNED_valid));
+			MIX_invalid.addAll(Arrays.asList(NUMBER_SIGNED_invalid));
+			MIX_valid.addAll(Arrays.asList(NUMBER_DECIMAL_valid));
+			MIX_invalid.addAll(Arrays.asList(NUMBER_DECIMAL_invalid));
+			MIX_valid.addAll(Arrays.asList(NUMBER_SIGNED_DECIMAL_valid));
+			MIX_invalid.addAll(Arrays.asList(NUMBER_SIGNED_DECIMAL_invalid));
+			MIX_valid.addAll(Arrays.asList(STRING_valid));
+			MIX_invalid.addAll(Arrays.asList(STRING_invalid));
+		}
+		
+		Collections.shuffle(MIX_valid);
+		Collections.shuffle(MIX_invalid);
+		
+		if (MIX_valid.size() > 0 && MIX_invalid.size() > 0)			
+		{
+			String[] ret = { MIX_valid.get(0), MIX_invalid.get(0) };
+			return ret;
+		}
+		else
+		{
+			return null;
 		}
 	}
 	
@@ -129,7 +176,7 @@ public class TestValuesDictionary
 		}
 		else	
 		{
-			return getValues(DEFAULT_STRINGS, DEFAULT_STRINGS, firstValue); 
+			return getValues(STRING_valid, STRING_invalid, firstValue); 
 		}
 	}
 	
@@ -179,13 +226,15 @@ public class TestValuesDictionary
 		".email@domain.com", // Leading dot in address is not allowed
 		"email.@domain.co", // Trailing dot in address is not allowed
 		"email..email@domain.com", // Multiple dots
-		"あいうえお@domain.com", // Unicode char as address
+		"ã�‚ã�„ã�†ã�ˆã�Š@domain.com", // Unicode char as address
 		"email@domain.com (Joe Smith)", // Text followed email is not allowed
 		"email@domain", // Missing top level domain (.com/.net/.org/etc)
 		"email@-domain.com", // Leading dash in front of domain is invalid
 		"email@domain.web", // .web is not a valid top level domain
 		"email@111.222.333.44444", // Invalid IP format
-		"email@domain..com" // Multiple dot in the domain portion is invalid		
+		"email@domain..com", // Multiple dot in the domain portion is invalid
+		"\nemail@domain.com",
+		"\temail@domain.com"
 	};
 	
 	//RFC3986 normal example
@@ -222,6 +271,8 @@ public class TestValuesDictionary
 		"http:////////user:@google.com:99?foo",
 		"http:\\\\\\\\www.google.com\\\\foo",
 		"http://foo:-80/",
+		"http://www.google.it\n",
+		"\thttp://www.google.it",
 		"htto;//pippo,com"
 	};
 	
@@ -251,7 +302,9 @@ public class TestValuesDictionary
 		"78278178278144094409",
 		"32554744",
 		"8163358721",
-		"ASDBS!!DFF"
+		"ASDBS!!DFF",
+		"\n1452472319",
+		"\t1452472319"
 	};
 	
 	public final static String[] CREDIT_CARD_valid = {
@@ -268,7 +321,7 @@ public class TestValuesDictionary
 		"6011111111111117", //Discover
 		"6011000990139424", //Discover
 		"3530111333300000", //JCB
-		"3566002020360505 ", //JCB
+		"3566002020360505", //JCB
 		"5555555555554444", //MasterCard
 		"5105105105105100", //MasterCard
 		"4012888888881881", //Visa
@@ -291,6 +344,8 @@ public class TestValuesDictionary
 		"5431255555554444",
 		"AAABBB5105105100",
 		"411111!111111111",
+		"\n4116480559370132",
+		"\t4116480559370132",
 		"123456",
 		"12"
 	};
@@ -304,6 +359,8 @@ public class TestValuesDictionary
 	public final static String[] ZIP_invalid = {
 		"3a5801a",
 		"4a4101",
+		"\n82941",
+		"\t82941",
 		"829411234",
 		"abcdef",
 		"!!!!!!"
@@ -329,7 +386,9 @@ public class TestValuesDictionary
 	public final static String[] NUMBER_invalid = {
 		"AAA",
 		"99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
-		"-12",		
+		"-12",
+		"\n12",
+		"\t12",
 		"!!-",
 		"12.01",
 		"12%",
@@ -360,6 +419,8 @@ public class TestValuesDictionary
 		"!12",
 		"233176401123040024477515224301703382452989758054156037914702679301887293196935329184208300820842156635598983942674598.921047033915219852965519484067098016447",
 		"10.-9",
+		"\n10.9",
+		"\t10.9",
 		"hello",
 		"09@11+",
 		"*12.01",
@@ -391,6 +452,8 @@ public class TestValuesDictionary
 		"hello",
 		"09@11+",
 		"-12",
+		"\n3.42",
+		"\t12.3",
 		"AAA",
 		"!!-",
 		"*12.01",
@@ -414,11 +477,15 @@ public class TestValuesDictionary
 	
 	public final static String[] NUMBER_SIGNED_DECIMAL_invalid = {
 		"12,3",
+		"12\n78",
 		"ab00",
 		"233176401123040024477515224301703382452989758054156037914702679301887293196935329184208300820842156635598983942674598.921047033915219852965519484067098016447",
 		"10.-9",
+		"4411 7448",
 		"hello",
 		"09@11+",
+		"\n124",
+		"\t234",
 		"*12.01",
 		"AAA",
 		"!!-",
@@ -427,7 +494,7 @@ public class TestValuesDictionary
 		"z<q"
 	};
 
-	public final static String[] DEFAULT_STRINGS = {
+	public final static String[] STRING_valid = {
 		"string",
 		"zyxel129",
 		"cercei",
@@ -465,5 +532,12 @@ public class TestValuesDictionary
 		"sts1903",
 		"HAIXIA2009",
 		"zou186187"
+	};
+	
+	public final static String[] STRING_invalid = {
+		"ndkgskgjskjsdkfjdflkdsjfdskfjsdkfjsdkfljsdlkfsfkdfhdfjgksgjskgjskgsklsdjkfjsdkfjsdkghsesggjskljlkdljkh",
+		"\n\n\n\t\t\n",
+		"hthw\tfafadf",
+		"peworiw\nfldflsdk"
 	};
 }
