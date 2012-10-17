@@ -18,4 +18,16 @@ public interface InteractionType {
 	public final static String WRITE_TEXT = "writeText";
 	public final static String PRESS_KEY = "pressKey";
 	public final static String RADIO_SELECT = "selectRadioItem";
+	
+	/** @author nicola amatucci - sensori/reflection */
+	public final static String ACCELEROMETER_SENSOR_EVENT = "accelerometerSensorEvent";
+	public final static String ORIENTATION_SENSOR_EVENT = "orientationSensorEvent";
+	public final static String MAGNETIC_FIELD_SENSOR_EVENT = "magneticFieldSensorEvent";
+	public final static String TEMPERATURE_SENSOR_EVENT = "temperatureSensorEvent";
+	public final static String AMBIENT_TEMPERATURE_SENSOR_EVENT = "ambientTemperatureSensorEvent";
+	public final static String GPS_LOCATION_CHANGE_EVENT = "gpsLocationChangeEvent";
+	public final static String GPS_PROVIDER_DISABLE_EVENT = "gpsProviderDisableEvent";
+	public final static String INCOMING_SMS_EVENT = "incomingSMSEvent";
+	public final static String INCOMING_CALL_EVENT = "incomingCallEvent";
+	/** @author nicola amatucci - sensori/reflection */	
 }

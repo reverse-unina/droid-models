@@ -32,4 +32,7 @@ public interface SimpleType {
 	public final static String PREFERENCE_LIST = "preferenceList";
 	public final static String EMPTY_SPINNER = "emptySpinner";
 	
+	/** @author nicola amatucci - sensori/reflection */
+	public final static String RELATIVE_LAYOUT = "relativeLayout";
+	/** @author nicola amatucci - sensori/reflection */
 }
