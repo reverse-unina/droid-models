@@ -248,11 +248,7 @@ public class GuiTree extends XmlGraph implements Session, Testable, Plottable {
 		fail.setName(failType);
 		fail.setId(failType);
 		fail.setTitle(failType);
-		
-		Transition transition = t.getFinalTransition();
-		if (transition != null)
-			transition.setFinalActivity(fail);
-		
+		t.setFinalActivity(fail);
 		addTrace(t);
 	}
 
