@@ -29,5 +29,9 @@ public interface InteractionType {
 	public final static String GPS_PROVIDER_DISABLE_EVENT = "gpsProviderDisableEvent";
 	public final static String INCOMING_SMS_EVENT = "incomingSMSEvent";
 	public final static String INCOMING_CALL_EVENT = "incomingCallEvent";
-	/** @author nicola amatucci - sensori/reflection */	
+	/** @author nicola amatucci - sensori/reflection */
+	
+	/** @author nicola */
+	public final static String FOCUS = "focus";
+	/** @author nicola */
 }
