@@ -35,4 +35,8 @@ public interface SimpleType {
 	/** @author nicola amatucci - sensori/reflection */
 	public final static String RELATIVE_LAYOUT = "relativeLayout";
 	/** @author nicola amatucci - sensori/reflection */
+	
+	/** @author nicola */
+	public final static String FOCUSABLE_EDIT_TEXT = "focusableEditText";	
+	/** @author nicola */
 }
