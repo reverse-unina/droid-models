@@ -33,5 +33,6 @@ public interface InteractionType {
 	
 	/** @author nicola */
 	public final static String FOCUS = "focus";
+	public final static String DRAG = "drag";
 	/** @author nicola */
 }
