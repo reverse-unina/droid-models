@@ -17,6 +17,7 @@ public interface InteractionType {
 	public final static String CLICK_ON_TEXT = "clickText";
 	public final static String WRITE_TEXT = "writeText";
 	public final static String SEARCH_TEXT = "searchText";
+	public final static String AUTO_TEXT = "autoText";
 	public final static String PRESS_KEY = "pressKey";
 	public final static String RADIO_SELECT = "selectRadioItem";
 	
