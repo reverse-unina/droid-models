@@ -30,27 +30,15 @@ public class TestCaseInput extends TestCaseInteraction implements UserInput {
 	}
 
 	public String getType() {
-//		return getElement().getAttribute("input_type");
 		return getAttribute("type");
 	}
 
 	public String getName() {
-//		return getElement().getAttribute("input_name");
 		return getWidget().getName();
 	}
 
-//	public String getWidgetType() {
-////		return getElement().getAttribute("widget_type");
-//		return getWidget().getType();
-//	}
-//
-//	public String getWidgetId() {
-////		return getElement().getAttribute("input_id");
-//		return getWidget().getId();
-//	}
 
 	public String getValue() {
-//		return getElement().getAttribute("input_value");
 		return getAttribute("value");
 	}
 	
@@ -58,35 +46,11 @@ public class TestCaseInput extends TestCaseInteraction implements UserInput {
 		return hasAttribute("value");
 	}
 	
-//	public void setWidget(WidgetState w) {
-//		setName (w.getType());
-//		setWidgetId(w.getId());
-//		setWidgetType (w.getSimpleType());
-//	}
-	
-//	public void setWidgetId (String id) {
-////		getElement().setAttribute("input_id", id);
-//		getWidget().setId(id);
-//	}
-	
-//	public void setWidgetName (String name) {
-////		getElement().setAttribute("input_name", name);
-////		getWidget().setName(name);
-//		super.setWidgetName (name);
-//	}
-	
 	public void setType (String type) {
-//		getElement().setAttribute("input_type", type);
 		setAttribute("type",type);
 	}
 
-//	public void setWidgetType (String type) {
-////		getElement().setAttribute("widget_type", type);
-//		getWidget().setType(type);
-//	}
-
 	public void setValue (String value) {
-//		getElement().setAttribute("input_value", value);
 		setAttribute("value", value);
 	}
 	
@@ -109,40 +73,14 @@ public class TestCaseInput extends TestCaseInteraction implements UserInput {
 	
 	public TestCaseInput clone () {
 		TestCaseInput i = createInput(this.getElement().getOwnerDocument());
-//		TestCaseEvent e = createEvent (this.getElement().getOwnerDocument());
 		i.setType(this.getType());
 		if (this.hasValue()) {
 			i.setValue(this.getValue());
 		}
 		i.setId(this.getId());
-//		if (this.hasDescription()) {
-//			e.setDescription(this.getDescription());
-//		}
 		i.setWidget(this.getWidget().clone());
 		return i;
 	}
-
-//	public TestCaseInput clone () {
-//		TestCaseInput i = createInput(getElement().getOwnerDocument());
-//		i.setName(this.getName());
-//		i.setWidgetId(this.getWidgetId());
-//		i.setWidgetType(this.getWidgetType());				
-//		if (hasValue()) i.setValue(this.getValue());
-//		i.setType(this.getType());
-//		i.setId (this.getId());
-//		return i;
-//	}
-	
-//	public WidgetState getWidget() {
-//		return new TestCaseWidget ((Element)getElement().getChildNodes().item(0));
-//	}
-//
-//	public void setWidget(WidgetState newChild) {
-//		Element oldChild = getWidget().getElement();
-//		if (oldChild != null)
-//			getElement().removeChild(oldChild);
-//		getElement().appendChild(newChild.getElement());
-//	}
 
 	public static String TAG = "INPUT";
 

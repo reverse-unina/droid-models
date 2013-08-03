@@ -88,13 +88,13 @@ public class TestCaseTransition extends ElementWrapper implements Transition {
 	public static TestCaseTransition createTransition (Document dom) {
 		TestCaseTransition t = new TestCaseTransition(dom);
 		StartActivity sa = StartActivity.createActivity(dom);
-		t.appendChild(sa); // t.setStartActivity(sa);
+		t.appendChild(sa); 
 		Element inputz = dom.createElement("INPUTS");
 		t.appendChild(inputz);
 		TestCaseEvent e = TestCaseEvent.createEvent(dom);
-		t.appendChild(e); // t.setEvent(e);
+		t.appendChild(e); 
 		FinalActivity fa = FinalActivity.createActivity(dom);
-		t.appendChild(fa); // t.setFinalActivity(fa);
+		t.appendChild(fa); 
 		return t;
 	}
 	

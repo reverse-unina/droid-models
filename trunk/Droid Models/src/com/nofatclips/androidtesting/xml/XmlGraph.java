@@ -49,7 +49,6 @@ public abstract class XmlGraph {
 		if (builder instanceof DocumentBuilder)
 			return builder;
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		//this.someLogger.setLevel(Level.INFO);
 		try {
 			if (isValidation()) {
 				factory.setValidating(true);
@@ -59,7 +58,6 @@ public abstract class XmlGraph {
 			builder = factory.newDocumentBuilder();
 			builder.setEntityResolver(new EntityResolver (){
 				public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-					//someLogger.fine(publicId + '-' + systemId);
 					String dtdFileName = systemId.substring(systemId.lastIndexOf("/")+1);
 					InputStream u = XmlGraph.class.getClassLoader().getResourceAsStream("ext/"+dtdFileName);
 					return (u == null)?null:new InputSource (u);

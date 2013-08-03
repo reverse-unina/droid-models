@@ -28,11 +28,6 @@ public class GuiTree extends XmlGraph implements Session, Testable, Plottable {
 		return this.guiTree;
 	}
 	
-//	public String getDot () {
-//		GuiTreeToDot g = new GuiTreeToDot (this);
-//		return g.getDot();
-//	}
-	
 	public void parse(File f) throws SAXException, IOException, ParserConfigurationException {
 		this.guiTree = getBuilder().parse(f);
 	}
@@ -225,11 +220,6 @@ public class GuiTree extends XmlGraph implements Session, Testable, Plottable {
 		return g;
 	}
 
-//	public String getJUnit() {
-//		Testable t = new TestCaseFromSession(this);
-//		return t.getJUnit();
-//	}
-	
 	public void addTrace (Trace t) {
 		getDom().getDocumentElement().appendChild(t.getElement());
 	}

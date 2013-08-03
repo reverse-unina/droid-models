@@ -13,7 +13,5 @@ public class ContentType
 	public final static String NUMBER_DECIMAL = "numberDecimal";
 	public final static String NUMBER_SIGNED_DECIMAL = "numberSignedDecimal"; //	
 	
-	
-	//public final static String STRINGA = "stringa";
 	public final static String DEFAULT = "default";
 }
