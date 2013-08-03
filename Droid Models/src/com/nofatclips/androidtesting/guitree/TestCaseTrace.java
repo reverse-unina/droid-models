@@ -52,9 +52,9 @@ public class TestCaseTrace extends ElementWrapper implements Trace {
 		setAttribute("fail", (failure)?"true":"false");
 	}
 
-	public void setAsync(boolean failure) {
-		setAttribute("async", (failure)?"true":"false");
-	}
+//	public void setAsync(boolean failure) {
+//		setAttribute("async", (failure)?"true":"false");
+//	}
 
 	public void setFailed(String failure) {
 		setAttribute("fail", failure);
@@ -64,9 +64,9 @@ public class TestCaseTrace extends ElementWrapper implements Trace {
 		return getAttribute("fail");
 	}
 
-	protected String getAsync() {
-		return getAttribute("async");
-	}
+//	protected String getAsync() {
+//		return getAttribute("async");
+//	}
 
 	public TestCaseTrace getWrapper(Element e) {
 		return new TestCaseTrace (e);
@@ -98,7 +98,7 @@ public class TestCaseTrace extends ElementWrapper implements Trace {
 			t.addTransition(newChild);
 		}
 		t.setFailed(getFailed());
-		t.setAsync(false);
+//		t.setAsync(false);
 		return t;
 	}
 

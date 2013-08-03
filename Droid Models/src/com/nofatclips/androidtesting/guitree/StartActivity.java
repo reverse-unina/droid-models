@@ -26,13 +26,7 @@ public class StartActivity extends TestCaseActivity {
 	public static StartActivity createActivity (Document dom, String tag) {
 		Element el = dom.createElement(tag);
 		Element desc = dom.createElement(DESC_TAG);
-		el.appendChild(desc);
-		
-		/** @author nicola amatucci - sensori/reflection */
-		Element supported_events = dom.createElement(SUPPORTED_EVENTS_TAG);
-		el.appendChild(supported_events);
-		/** @author nicola amatucci - sensori/reflection */
-		
+		el.appendChild(desc);		
 		return new StartActivity (el);		
 	}
 	
@@ -43,11 +37,6 @@ public class StartActivity extends TestCaseActivity {
 		newActivity.setTitle(originalActivity.getTitle());
 		newActivity.setId(originalActivity.getId());
 		newActivity.copyDescriptionFrom(originalActivity);
-		
-		/** @author nicola amatucci - sensori/reflection */
-		newActivity.copySupportedEventsFrom(originalActivity);
-		/** @author nicola amatucci - sensori/reflection */
-		
 		newActivity.setUniqueId(originalActivity.getUniqueId());
 		newActivity.setScreenshot(originalActivity.getScreenshot());
 		return newActivity;

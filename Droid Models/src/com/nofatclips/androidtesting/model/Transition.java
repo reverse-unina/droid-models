@@ -1,7 +1,5 @@
 package com.nofatclips.androidtesting.model;
 
-//import org.w3c.dom.Element;
-
 public interface Transition extends Iterable<UserInput>, WrapperInterface {
 
 	public String getId();

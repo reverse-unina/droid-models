@@ -63,6 +63,8 @@ public class ActivityMap implements Iterable<ActivityState> {
 				output.add(line.replaceFirst(root, doctype + root));
 				first = false;
 			}
+			theFile.close();
+			theStream.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

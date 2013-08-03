@@ -27,8 +27,7 @@ public interface WidgetState extends WrapperInterface {
 	public String getValue();
 	public void setValue (String v);
 
-	/** @author nicola */
 	public String getContentType();
 	public void setContentType(String contentType);
-	/** @author nicola */
+
 }

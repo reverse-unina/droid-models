@@ -91,12 +91,9 @@ public class WidgetAdapter implements WidgetState {
 	public void setLongClickable(String lc) {}
 	public void setUniqueId(String id) {}
 	
-	/** @author nicola */
 	public String getContentType() {
 		return null;
 	}
-	public void setContentType(String contentType) {
-		
-	}
-	/** @author nicola */
+	
+	public void setContentType(String contentType) {}
 }

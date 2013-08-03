@@ -1,7 +1,5 @@
 package com.nofatclips.androidtesting.model;
 
-import java.util.ArrayList;
-
 public interface ActivityState extends WrapperInterface, Iterable<WidgetState> {
 	
 	public static String FAILURE = "fail";
@@ -29,11 +27,4 @@ public interface ActivityState extends WrapperInterface, Iterable<WidgetState> {
 	public void markAsCrash();
 	public void markAsFailure();
 
-	/** @author nicola amatucci - sensori/reflection */
-	public ArrayList<SupportedEvent> getSupportedEvents();
-	public ArrayList<SupportedEvent> getSupportedEventsByWidgetUniqueId(String uid);
-	public void resetSupportedEvents();
-	public void addSupportedEvent(SupportedEvent event);
-	public boolean supportsEvent(String uid, String event);
-	/** @author nicola amatucci - sensori/reflection */	
 }

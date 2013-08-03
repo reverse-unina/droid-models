@@ -32,13 +32,8 @@ public interface SimpleType {
 	public final static String MULTI_CHOICE_LIST = "multiChoiceList";
 	public final static String PREFERENCE_LIST = "preferenceList";
 	public final static String EMPTY_SPINNER = "emptySpinner";
-	
-	/** @author nicola amatucci - sensori/reflection */
 	public final static String RELATIVE_LAYOUT = "relativeLayout";
-	/** @author nicola amatucci - sensori/reflection */
-	
-	/** @author nicola */
 	public final static String FOCUSABLE_EDIT_TEXT = "focusableEditText";
 	public final static String SLIDING_DRAWER = "slidingDrawer";
-	/** @author nicola */
+
 }
