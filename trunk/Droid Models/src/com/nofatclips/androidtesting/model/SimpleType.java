@@ -32,8 +32,10 @@ public interface SimpleType {
 	public final static String MULTI_CHOICE_LIST = "multiChoiceList";
 	public final static String PREFERENCE_LIST = "preferenceList";
 	public final static String EMPTY_SPINNER = "emptySpinner";
+	
 	public final static String RELATIVE_LAYOUT = "relativeLayout";
 	public final static String FOCUSABLE_EDIT_TEXT = "focusableEditText";
 	public final static String SLIDING_DRAWER = "slidingDrawer";
+	public final static String EXPAND_MENU = "expandMenu";
 
 }
