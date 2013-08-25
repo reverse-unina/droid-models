@@ -30,6 +30,7 @@ public interface SimpleType {
 	
 	public final static String NULL = "null";
 	public final static String NUMBER_PICKER = "numberPicker";
+	public final static String NUMBER_PICKER_BUTTON = "numberPickerButton";
 	
 	public final static String PREFERENCE_LIST = "preferenceList";
 	
