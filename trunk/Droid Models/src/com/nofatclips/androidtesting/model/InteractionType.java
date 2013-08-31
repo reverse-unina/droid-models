@@ -1,8 +1,6 @@
 package com.nofatclips.androidtesting.model;
 
 public interface InteractionType {
-
-	public final static String AUTO_TEXT = "autoText";
 	
 	public final static String BACK = "back";
 	
@@ -11,6 +9,8 @@ public interface InteractionType {
 	public final static String CLICK_ON_TEXT = "clickText";
 	
 	public final static String DRAG = "drag";
+	
+	public final static String ENTER_TEXT = "enterText";
 	
 	public final static String FOCUS = "focus";
 	
@@ -27,7 +27,6 @@ public interface InteractionType {
 	public final static String RADIO_SELECT = "selectRadioItem";
 	
 	public final static String SCROLL_DOWN = "scrollDown";
-	public final static String SEARCH_TEXT = "searchText";
 	public final static String SET_BAR = "setBar";
 	public final static String SPINNER_SELECT = "selectSpinnerItem";
 	public final static String SWAP_TAB = "swapTab";
