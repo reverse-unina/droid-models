@@ -51,7 +51,7 @@ public abstract class XmlGraph {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			if (isValidation()) {
-				factory.setValidating(true);
+				factory.setValidating(false);
 				factory.setIgnoringElementContentWhitespace(true);
 			}
 			

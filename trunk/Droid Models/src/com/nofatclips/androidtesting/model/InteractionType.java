@@ -35,4 +35,6 @@ public interface InteractionType {
 	
 	public final static String WRITE_TEXT = "writeText";
 	
+	public final static String AUTO_TEXT = "autoText";
+	public final static String SEARCH_TEXT = "searchText";
 }
