@@ -1,0 +1,1 @@
+A set of libraries and interfaces which describe and implement the models used and the functions required by the Android Ripper and its tool suite.
